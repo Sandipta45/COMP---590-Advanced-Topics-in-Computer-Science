@@ -1,0 +1,123 @@
+                                                      ASSIGNMENT-02
+
+TASK-01
+
+1. How many unique message types do we see in this transaction?
+
+Ans. The unique message types we see in this transaction are as 
+follows:
+ 1. Read request (RRQ)
+ 2. Write request (WRQ)
+ 3. Data (DATA)
+ 4. Acknowledgment (ACK)
+ 5. Error (ERROR)
+
+2. What is the default block size for TFTP?
+
+Ans. The default block size for TFTP is 512.
+
+3. What is the block size used in this transaction?
+
+Ans. The block size used in this transaction is 1337.
+
+4. Which frame numbers contain read requests, if any?
+
+Ans. The frame numbers which contain read requests is 1(Frame 
+Number).
+
+5. Which frame numbers contain write requests, if any?
+
+Ans. The frame numbers which contain write requests is Null.
+
+6. Is a file being transferred from the server or being sent to the 
+server? How do you know?
+
+Ans.  File is transferred from the server. 
+Because L03-TFTP.pcapng only has one Read Request from Destination 
+Port Number 69, which is assign port for TFTP server. 
+Also Read Request is initiated by TFTP client.
+
+7. Given your answer to number 1, which IP address represents the 
+server?
+
+Ans. The IP address represents the server is 192.168.254.199.
+
+8. How does the client/server know the file transfer is complete?
+
+Ans. In TFTP, the end of a transfer is marked by a DATA packet that contains
+between 0 and 511 bytes of data (i.e., Datagram length < 516).
+   		
+Frame No 154, packet size is 406 bytes with TFTP data length of 
+360 bytes, which indicate last packet.
+
+9. Imagine if TFTP was an ASCII based protocol, reasonably translate 
+three unique messages from this lab into this new imaginary version.
+
+Ans. 
+           Frame 					TFTP 								TFTP
+	   No.   					in Hex								in ASCII	
+	   
+	   1   	         00 01 66 69 6c 65 00 6e 65 74 61 73 63 69 69 00                                                ..file.netascii.
+	      	         62 6c 6b 73 69 7a 65 00 31 33 33 37 00                                                         blksize.1337.
+
+	   2             00 06 62 6c 6b 73 69 7a 65 00 31 33 33 37 00                                                  ..blksize.1337.
+                         00 00 00										       ...
+            
+	   154                                      00 03 00 4c                                                        ...L
+			6d 61 67 6e 61 20 65 67 65 74 20 74 72 69 73 74                                                magna eget trist
+			69 71 75 65 20 75 6c 74 72 69 63 69 65 73 2c 20                                                ique ultricies, 
+			6e 65 71 75 65 20 6f 72 63 69 20 66 65 75 67 69                                                neque orci feugi
+			61 74 20 64 6f 6c 6f 72 2c 20 71 75 69 73 20 6d                                                at dolor, quis m
+			6f 6c 6c 69 73 20 66 65 6c 69 73 20 6c 69 67 75                                                ollis felis ligu
+			6c 61 20 76 65 6e 65 6e 61 74 69 73 20 74 65 6c                                                la venenatis tel
+			6c 75 73 2e 0d 0a 0d 0a 44 6f 6e 65 63 20 63 6f                                                lus.....Donec co
+			6e 76 61 6c 6c 69 73 20 70 75 72 75 73 20 6e 6f                                                nvallis purus no
+			6e 20 6d 61 67 6e 61 20 70 72 65 74 69 75 6d 20                                                n magna pretium 
+			66 65 72 6d 65 6e 74 75 6d 2e 20 56 69 76 61 6d                                                fermentum. Vivam
+			75 73 20 69 61 63 75 6c 69 73 20 6c 69 62 65 72                                                us iaculis liber
+			6f 20 73 75 73 63 69 70 69 74 20 69 70 73 75 6d                                                o suscipit ipsum
+			20 72 68 6f 6e 63 75 73 2c 20 61 74 20 76 75 6c                                                rhoncus, at vul
+			70 75 74 61 74 65 20 6e 69 73 6c 20 6c 61 6f 72                                                putate nisl laor
+			65 65 74 2e 20 49 6e 74 65 72 64 75 6d 20 65 74                                                eet. Interdum et
+			20 6d 61 6c 65 73 75 61 64 61 20 66 61 6d 65 73                                                malesuada fames
+			20 61 63 20 61 6e 74 65 20 69 70 73 75 6d 20 70                                                ac ante ipsum p
+			72 69 6d 69 73 20 69 6e 20 66 61 75 63 69 62 75                                                rimis in faucibu
+			73 2e 20 44 6f 6e 65 63 20 6d 61 74 74 69 73 20                                                s. Donec mattis 
+			6e 69 73 6c 20 74 6f 72 74 6f 72 2c 20 76 69 74                                                nisl tortor, vit
+			61 65 20 74 72 69 73 74 69 71 75 65 20 61 6e 74                                                ae tristique ant
+			65 20 6c 61 63 69 6e 69 61 20 6e 6f 6e 20 6c 65                                                e lacinia non le
+			63 74 75 73 2e 20 0d 0a                                                                        ctus. ..
+
+10. Imagine if IRC was a binary based protocol, reasonably translate 
+three unique messages from L02 to this new imaginary version.
+Ans
+
+ Frame    IRC 								IRC
+   No.    in ASCII							in Binary
+	
+   5	  PONG 751060149..		50 4f 4e 47 20 37 35 31 30 36 30 31 34 39 0d 0a   
+
+	   	
+   15	  :kscrivs!~kscriv		3a 6b 73 63 72 69 76 73 21 7e 6b 73 63 72 69 76
+   		  s@11-111-11-11.l		73 40 31 31 2d 31 31 31 2d 31 31 2d 31 31 2e 6c
+   		  san.ca.frontiern		73 61 6e 2e 63 61 2e 66 72 6f 6e 74 69 65 72 6e 
+   		  et.net JOIN #com  	65 74 2e 6e 65 74 20 4a 4f 49 4e 20 23 63 6f 6d  
+   		  p429..:dallas.tx		70 34 32 39 0d 0a 3a 64 61 6c 6c 61 73 2e 74 78
+		  .us.undernet.org		2e 75 73 2e 75 6e 64 65 72 6e 65 74 2e 6f 72 67
+		   353 kscrivs = #		20 33 35 33 20 6b 73 63 72 69 76 73 20 3d 20 23
+          comp429 :@kscriv		63 6f 6d 70 34 32 39 20 3a 40 6b 73 63 72 69 76
+		  s..:dallas.tx.us		73 0d 0a 3a 64 61 6c 6c 61 73 2e 74 78 2e 75 73
+		  .undernet.org 36		2e 75 6e 64 65 72 6e 65 74 2e 6f 72 67 20 33 36 
+		  6 kscrivs #comp4		36 20 6b 73 63 72 69 76 73 20 23 63 6f 6d 70 34
+		  29 :End of /NAME		32 39 20 3a 45 6e 64 20 6f 66 20 2f 4e 41 4d 45
+		  S list...				53 20 6c 69 73 74 2e 0d 0a
+
+
+   20	  PRIVMSG #comp429		50 52 49 56 4d 53 47 20 23 63 6f 6d 70 34 32 39
+		  :how's that lab		20 3a 68 6f 77 27 73 20 74 68 61 74 20 6c 61 62
+		  going?..     			20 67 6f 69 6e 67 3f 0d 0a
+                            
+
+   23	  DISCONNECT ..			44 49 53 43 4f 4e 4e 45 43 54 20 0d 0a            
+
+   25	  QUIT :..				51 55 49 54 20 3a 0d 0a                           
